@@ -1,0 +1,200 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Console.gd" type="Script" id=1]
+
+[node name="Console" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+wood_pile = 0
+
+[node name="Year Counter" type="Label" parent="."]
+margin_right = 76.0
+margin_bottom = 14.0
+text = "Year "
+
+[node name="Raw Resources" type="Label" parent="."]
+margin_top = 60.0
+margin_right = 66.0
+margin_bottom = 74.0
+text = "Raw Resources"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wood" type="Label" parent="."]
+margin_top = 80.0
+margin_right = 40.0
+margin_bottom = 94.0
+text = "Wood - "
+
+[node name="Processed Resources" type="Label" parent="."]
+margin_top = 154.0
+margin_right = 136.0
+margin_bottom = 168.0
+text = "Processed Resources"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lumber" type="Label" parent="."]
+margin_top = 170.0
+margin_right = 40.0
+margin_bottom = 184.0
+text = "Lumber - "
+
+[node name="Workers" type="Label" parent="."]
+margin_top = 240.0
+margin_right = 66.0
+margin_bottom = 254.0
+text = "Workers - 0"
+
+[node name="Convert Wood to Lumber" type="Button" parent="."]
+margin_left = 320.0
+margin_top = 30.0
+margin_right = 492.0
+margin_bottom = 50.0
+text = "Convert Wood -> Lumber"
+
+[node name="Craftmanships" type="Label" parent="."]
+margin_left = 320.0
+margin_right = 492.0
+margin_bottom = 50.0
+text = "Craftmanships
+"
+
+[node name="End Turn" type="Button" parent="."]
+margin_left = 940.0
+margin_top = 570.0
+margin_right = 1007.0
+margin_bottom = 590.0
+text = "End Year"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Carpenters" type="Label" parent="."]
+margin_top = 260.0
+margin_right = 40.0
+margin_bottom = 274.0
+text = "Carpenters - 0"
+
+[node name="Convert Worker -> Carpenter" type="Button" parent="."]
+margin_top = 300.0
+margin_right = 194.0
+margin_bottom = 320.0
+text = "Convert Worker -> Carpenter"
+
+[node name="Convert Worker to Lumberjack" type="Button" parent="."]
+margin_top = 330.0
+margin_right = 206.0
+margin_bottom = 350.0
+text = "Convert Worker -> Lumberjack"
+
+[node name="Current Orders" type="Label" parent="."]
+margin_left = 860.0
+margin_right = 955.0
+margin_bottom = 31.0
+text = "Current Orders
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Up" type="Button" parent="."]
+margin_left = 800.0
+margin_top = 25.0
+margin_right = 830.0
+margin_bottom = 45.0
+disabled = true
+text = "Up"
+
+[node name="Delete" type="Button" parent="."]
+margin_left = 800.0
+margin_top = 55.0
+margin_right = 855.0
+margin_bottom = 75.0
+disabled = true
+text = "Delete"
+
+[node name="Down" type="Button" parent="."]
+margin_left = 800.0
+margin_top = 81.0
+margin_right = 848.0
+margin_bottom = 101.0
+disabled = true
+text = "Down"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item List" type="ItemList" parent="."]
+margin_left = 860.0
+margin_top = 21.0
+margin_right = 1020.0
+margin_bottom = 421.0
+allow_reselect = true
+allow_rmb_select = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Available Resources" type="Label" parent="."]
+margin_left = 320.0
+margin_top = 110.0
+margin_right = 510.0
+margin_bottom = 190.0
+text = "Available Tiles
+"
+
+[node name="Forest" type="Label" parent="Available Resources"]
+margin_top = 20.0
+margin_right = 56.0
+margin_bottom = 51.0
+text = "Forest: 0
+"
+
+[node name="Mines" type="Label" parent="Available Resources"]
+margin_top = 50.0
+margin_right = 55.0
+margin_bottom = 64.0
+text = "Mines: 0"
+
+[node name="Exploit Forest" type="Button" parent="Available Resources"]
+margin_left = 80.0
+margin_top = 20.0
+margin_right = 135.0
+margin_bottom = 40.0
+text = "Exploit Forest"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exploit Mine" type="Button" parent="Available Resources"]
+margin_left = 80.0
+margin_top = 50.0
+margin_right = 167.0
+margin_bottom = 70.0
+text = "Explot Mine"
+
+[node name="Restart" type="Button" parent="."]
+margin_left = 10.0
+margin_top = 570.0
+margin_right = 67.0
+margin_bottom = 590.0
+text = "Restart"
+
+[node name="Lumberjacks" type="Label" parent="."]
+margin_top = 280.0
+margin_right = 81.0
+margin_bottom = 311.0
+text = "Lumberjacks - 0
+"
+[connection signal="pressed" from="End Turn" to="." method="_on_End_Turn_pressed"]
+[connection signal="pressed" from="Convert Worker -> Carpenter" to="." method="_on_Convert_Worker__Carpenter_pressed"]
+[connection signal="pressed" from="Convert Worker to Lumberjack" to="." method="_on_Convert_Worker_to_Lumberjack_pressed"]
+[connection signal="item_selected" from="Item List" to="." method="_on_Item_List_item_selected"]
+[connection signal="pressed" from="Restart" to="." method="_on_Restart_pressed"]
