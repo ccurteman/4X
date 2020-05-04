@@ -19,25 +19,25 @@ var orders : Array
 func _ready():
 	set_actions()
 	handle_turn()
-	
+
 	var temp_carpenters = carpenters
 	var temp_workers = workers
-	
-	
-	
+
+
+
 func set_actions():
 	if wood_pile < wood_to_lumber_ratio:
 		$"Convert Wood to Lumber".disabled = true
 	else:
 		$"Convert Wood to Lumber".disabled = false
-	
-	
-	
+
+
+
 func add_order(order_to_add):
 	$"Item List".add_item(order_to_add)
-	
-	
-	
+
+
+
 func handle_turn():
 	# Update Information
 	$"Year Counter".text = "Year " + str(current_year)
@@ -46,31 +46,31 @@ func handle_turn():
 	$"Lumber".text = "Lumber " + str(lumber_pile)
 	$"Workers".text = "Workers " + str(workers)
 	$"Carpenters".text = "Carpenters " + str(carpenters)
-	
-	
-	
+
+
+
 func handle_orders():
 	# Loop through each order and make that function call
 	# The name of the order will be the name of the function
 	pass
-	
-	
-	
+
+
+
 func make_lumber(wood):
 	var total_lumber_made = round(wood / 10)
 	wood_pile -= wood
 	lumber_pile += total_lumber_made
-	
-	
-	
+
+
+
 func train_carpenters(total_workers):
 	if total_workers > workers:
 		print("you cant do that")
 	else:
 		workers -= total_workers
-	
-	
-	
+
+
+
 func _on_End_Turn_pressed():
 	print("Turn Ended")
 	current_year += 1
@@ -105,28 +105,28 @@ func _on_Convert_Worker__Carpenter_pressed():
 	if workers > 0:
 		# Adding Actions to the Queue
 		add_order("train_carpenters")
-		
+
 		# Removing 1 workers for 1 carpenter and updating console
 		workers -= 1
 		$"Workers".text = "Workers " + str(workers)
-		
+
 		# Adding 1 carpenter for 1 worker and updating console
 		carpenters += 1
 		$"Carpenters".text = "Carpenters " + str(carpenters)
-	
+
 
 
 func _on_Convert_Worker_to_Lumberjack_pressed():
 	# Checking if there are any available workers
 	if workers > 0:
-		
+
 		# Adding Actions to the Queue
 		add_order("train_lumberjack")
-		
+
 		# Removing 1 workers for 1 carpenter and updating console
 		workers -= 1
 		$"Workers".text = "Workers " + str(workers)
-		
+
 		# Adding 1 lumberjack for 1 worker and updating console
 		lumberjacks += 1
 		$"Lumberjacks".text = "Lumberjacks " + str(lumberjacks)

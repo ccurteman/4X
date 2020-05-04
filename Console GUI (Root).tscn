@@ -7,6 +7,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 wood_pile = 0
@@ -67,10 +68,10 @@ text = "Craftmanships
 "
 
 [node name="End Turn" type="Button" parent="."]
-margin_left = 940.0
-margin_top = 570.0
-margin_right = 1007.0
-margin_bottom = 590.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -20.0
+margin_right = 67.0
 text = "End Year"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -181,10 +182,12 @@ margin_bottom = 70.0
 text = "Explot Mine"
 
 [node name="Restart" type="Button" parent="."]
-margin_left = 10.0
-margin_top = 570.0
-margin_right = 67.0
-margin_bottom = 590.0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -57.0
+margin_top = -20.0
 text = "Restart"
 
 [node name="Lumberjacks" type="Label" parent="."]
@@ -193,6 +196,28 @@ margin_right = 81.0
 margin_bottom = 311.0
 text = "Lumberjacks - 0
 "
+
+[node name="Log" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -256.0
+margin_top = -88.0
+margin_right = 256.0
+
+[node name="TextEdit" type="TextEdit" parent="Log"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Console Initialized..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VScrollBar" type="VScrollBar" parent="Log"]
+margin_left = 496.0
+margin_right = 508.0
+margin_bottom = 88.0
 [connection signal="pressed" from="End Turn" to="." method="_on_End_Turn_pressed"]
 [connection signal="pressed" from="Convert Worker -> Carpenter" to="." method="_on_Convert_Worker__Carpenter_pressed"]
 [connection signal="pressed" from="Convert Worker to Lumberjack" to="." method="_on_Convert_Worker_to_Lumberjack_pressed"]
