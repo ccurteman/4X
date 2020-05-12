@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+
+
+func _on_Button_pressed() -> void:
+	get_tree().change_scene(\"res://Console GUI (Root).tscn\")
+"
+
+[node name="Crafting" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -21.0
+margin_top = -10.0
+margin_right = 21.0
+margin_bottom = 10.0
+text = "Back"
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
